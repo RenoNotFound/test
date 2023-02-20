@@ -1,0 +1,135 @@
+// @use "../abstracts/" as *;
+
+.radio--custom {
+    display: block;
+    position: relative;
+}
+
+.radio--custom label {
+    display: flex;
+    line-height: 20px;
+}
+
+.radio--custom input[type="radio"] {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 0;
+    opacity: 0;
+    visibility: hidden;
+}
+
+.radio--custom input[type="radio"] + span {
+    display: block;
+    position: relative;
+
+    flex: 0 0 1.25rem;
+    width: 1.25rem;
+    height: 1.25rem;
+    margin-right: 0.625rem;
+}
+
+.radio--custom input[type="radio"] + span::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 1.25rem;
+    height: 1.25rem;
+
+    border-radius: 10px;
+    border: 1px solid #192743;
+
+    -webkit-transition: 0.15s ease-in-out;
+    -o-transition: 0.15s ease-in-out;
+    transition: 0.15s ease-in-out;
+}
+
+.radio--custom input[type="radio"]:checked + span::before {
+    border-color: #1abc9c;
+    background-color: #1abc9c;
+}
+
+.radio--custom input[type="radio"] + span::after {
+    content: "";
+    position: absolute;
+    top: 0.375rem;
+    left: 0.375rem;
+    width: 0.5rem;
+    height: 0.5rem;
+
+    opacity: 0;
+    visibility: hidden;
+    border-radius: 10px;
+    background-color: #fff;
+
+    -webkit-transition: 0.15s ease-in-out;
+    -o-transition: 0.15s ease-in-out;
+    transition: 0.15s ease-in-out;
+}
+
+.radio--custom input[type="radio"]:checked + span::after {
+    opacity: 1;
+    visibility: visible;
+}
+
+// .radio--custom {
+//     display: block;
+//     position: relative;
+
+//     label {
+//         display: flex;
+//         line-height: 20px;
+//     }
+
+//     .input[type="radio"] {
+//         @include absolute($top: 0, $left: 0);
+//         @include size(0);
+//         @include visibility(0, hidden);
+
+//         + span {
+//             display: block;
+//             position: relative;
+
+//             flex: 0 0 1.25rem;
+//             width: 1.25rem;
+//             height: 1.25rem;
+//             margin-right: 0.625rem;
+
+//             &::before {
+//                 content: "";
+//                 @include absolute($top: 0, $left: 0);
+//                 @include size(1.25rem);
+//                 @include transition(0.15s ease-in-out);
+//                 border-radius: 10px;
+//                 border: 1px solid #192743;
+
+//                 -webkit-transition: 0.15s ease-in-out;
+//                 -o-transition: 0.15s ease-in-out;
+//                 transition: 0.15s ease-in-out;
+//             }
+
+//             &::after {
+//                 content: "";
+//                 @include absolute($top: 0.375rem, $left: 0.375rem);
+//                 @include size(0.5rem);
+//                 @include transition(0.15s ease-in-out);
+//                 @include visibility(0, hidden);
+//                 border-radius: 10px;
+//                 background-color: $white;
+//             }
+//         }
+
+//         &:checked + span {
+//             &::before {
+//                 border-color: $emerald;
+//                 background-color: $emerald;
+//             }
+
+//             &::after {
+//                 @include visibility(1, visible);
+//             }
+//         }
+//     }
+// }

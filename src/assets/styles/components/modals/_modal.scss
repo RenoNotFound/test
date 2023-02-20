@@ -1,0 +1,73 @@
+@use "../../abstracts/" as *;
+
+
+:deep(.modal-container) {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+:deep(.modal-content) {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    margin: 0 1rem;
+    padding: 1rem;
+    border-radius: $base-border-radius;
+    background: #fff;
+
+    animation: fadeIn 0.35s ease-in both;
+
+}
+
+.modal__title {
+    margin: 0 2rem 0 0;
+    font-size: 1.5rem;
+    font-weight: 700;
+}
+
+.modal__close {
+    @include absolute($top: .5rem, $right: 0.5rem);
+    @include size(px-to-rem(30));
+    cursor: pointer;
+    z-index: 1001;
+    border: none;
+    background-color: transparent;
+    color: #333;
+
+    img {
+        @include size(px-to-rem(30));
+
+        fill: currentColor;
+    }
+}
+
+.fadeIn {
+    animation: fadeIn 0.35s ease-in both;
+}
+
+.fadeOut {
+    animation: fadeOut 0.35s ease-out both;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translate3d(0, -15%, 0);
+  }
+  to {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+@keyframes fadeOut {
+  from {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+  to {
+    opacity: 0;
+    transform: translate3d(0, 20%, 0);
+  }
+}

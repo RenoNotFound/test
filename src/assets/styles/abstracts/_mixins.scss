@@ -1,0 +1,183 @@
+@use "./variables" as *;
+@use "./functions" as *;
+@use "./colors" as *;
+
+/* =============================
+            POSITIONS
+================================ */
+
+@mixin position($position, $top: null, $right: null, $bottom: null, $left: null, $z-index: initial) {
+   position: $position;
+   top: $top;
+   right: $right;
+   bottom: $bottom;
+   left: $left;
+   z-index: $z-index;
+}
+
+@mixin absolute($args...) {
+   @include position(absolute, $args...);
+}
+
+@mixin relative($args...) {
+   @include position(relative, $args...);
+}
+
+@mixin fixed($args...) {
+   @include position(fixed, $args...);
+}
+
+/* =============================
+            LAYOUT
+================================ */
+
+@mixin flex-container($justify-content: null, $align-items: null, $direction: null, $wrap: null, $gap: null) {
+   display: flex;
+   justify-content: $justify-content;
+   align-items: $align-items;
+   flex-flow: $direction $wrap;
+   gap: $gap;
+}
+
+@mixin circle($width, $height: $width, $min-width: null, $border: null, $bg-color: null) {
+   @include rounded(50%);
+   @include size($width, $height, $min-width);
+   border: $border;
+   background-color: $bg-color;
+}
+
+@mixin size($width, $height: $width, $min-width: null, $max-width: null) {
+   width: $width;
+   height: $height;
+   min-width: $min-width;
+   max-width: $max-width;
+}
+
+@mixin rounded($radius: $base-border-radius) {
+   @include crossbrowser(border-radius, $radius);
+}
+
+@mixin visibility($opacity, $visibility) {
+   opacity: $opacity;
+   visibility: $visibility;
+}
+
+/* =============================
+            COMPONENTS
+================================ */
+
+// -- button --
+
+@mixin button-pseudo($color) {
+   content: "";
+   @include absolute(-1px, null, null, -1px);
+   @include size(calc(100% + 2px));
+   @include linear-gradient(
+      list-first-item(color($color)),
+      (list-nth-item(color($color), 2), list-last-item(color($color)))
+   );
+   @include rounded();
+   background-repeat: repeat-x;
+}
+
+@mixin button-outline-pseudo($color) {
+   content: "";
+   @include absolute(-1px, null, null, -1px);
+   @include size(calc(100% + 2px));
+   @include rounded();
+   border: 1px solid $color;
+   background-color: color(white);
+   background-repeat: repeat-x;
+}
+
+/* =============================
+            TEXT
+================================ */
+
+@mixin font(
+   $color: color(grey-dark),
+   $font-size: null,
+   $font-weight: null,
+   $line-height: null,
+   $text-align: null
+) {
+   color: $color;
+   font-size: $font-size;
+   font-weight: $font-weight;
+   line-height: $line-height;
+   text-align: $text-align;
+}
+
+// truncation on any text that overflows its containing element and adds an ellipsis (…) to the end
+@mixin text-shorten {
+   overflow: hidden;
+   text-overflow: ellipsis;
+   white-space: nowrap;
+}
+
+@mixin placeholder($color: null, $size: null) {
+   &::placeholder {
+      color: $color;
+      font-size: $size;
+   }
+
+   &::-webkit-input-placeholder {
+      color: $color;
+      font-size: $size;
+   }
+
+   &:-moz-placeholder {
+      color: $color;
+      font-size: $size;
+   }
+
+   &::-moz-placeholder {
+      color: $color;
+      font-size: $size;
+   }
+
+   &:-ms-input-placeholder {
+      color: $color;
+      font-size: $size;
+   }
+
+   &::-ms-input-placeholder {
+      color: $color;
+      font-size: $size;
+   }
+
+}
+
+/* =============================
+            OTHERS
+================================ */
+
+@mixin crossbrowser($prop, $value...) {
+   -webkit-#{$prop}: #{$value};
+   -moz-#{$prop}: #{$value};
+   -ms-#{$prop}: #{$value};
+   -o-#{$prop}: #{$value};
+   #{$prop}: #{$value};
+}
+
+@mixin transition($value...) {
+   @include crossbrowser(transition, $value...);
+}
+
+@mixin transform($value...) {
+   @include crossbrowser(transform, $value...);
+}
+
+@mixin linear-gradient($direction, $list) {
+   background: -webkit-linear-gradient($direction, $list);
+   background: -moz-linear-gradient($direction, $list);
+   background: -ms-linear-gradient($direction, $list);
+   background: -o-linear-gradient($direction, $list);
+}
+
+@mixin pseudo($width: 100%, $height: 100%, $display: inline-block, $pos: absolute, $content: "") {
+   content: $content;
+   display: $display;
+   position: $pos;
+   @include box($width, $height);
+}

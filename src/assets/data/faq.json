@@ -1,0 +1,46 @@
+[
+  {
+    "question": "Névre szóló utalványt tudok csak vásárolni, vagy ajándékba is adhatom?",
+    "answer": "Utalványaink egyedi azonosítóval vannak ellátva, de nem névre szólnak, így akár ajándékba is adhatók."
+  },
+  {
+    "question": "Milyen összegben vásárolható utalvány?",
+    "answer": "A megvásárolható utalványok legkisebb értéke 10 000 Ft lehet, felső összeghatár nincs, és bármilyen összeg rendelhető."
+  },
+  {
+    "question": "Meddig érvényes egy utalvány?",
+    "answer": "A repjegy.hu-n vásárolt utalványok a kiállítástól számított 1 évig érvényesek."
+  },
+  {
+    "question": "Hogyan tudom kifizetni az utalványt?",
+    "answer": "Több különböző fizetési mód is rendelkezésére áll: választhat banki átutalást, bankkártyás- vagy PayPal fizetést."
+  },
+  {
+    "question": "Vásárlás előtt meg tudom nézni, hogyan fog kinézni az utalvány?",
+    "answer": "Igen. A megrendelés során személyre szabhatja az utalványt és ellenőrizheti annak kinézetét. Megadhat egyedi címet, üzenetet, sőt, különböző témák közül is kiválaszthatja az utalvány stílusát."
+  },
+  {
+    "question": "Adhatok meg személyre szóló üzenetet az utalványon?",
+    "answer": "Igen. Az utalvány megrendelése során lehetősége van egy rövid személyre szóló üzenetet írni, melyet az utalványon feltüntetünk."
+  },
+  {
+    "question": "Hogyan és mikor kapom meg a kifizetett utalványt?",
+    "answer": "Elektronikus úton, emailben küldjük el a vásárlás során megadott e-mail címre. Amennyiben a fizetés sikeres volt rendszerünk automatikusan azonnal kiküldi, amennyiben utalásos fizetést választott, úgy az összeg bankszámlánkra történő beérkezését követően küldjük el az utalványt."
+  },
+  {
+    "question": "Hol lehet beváltani a repjegy.hu-s utalványt?",
+    "answer": "Az utalványokat a repjegy.hu-n lehet felhasználni repülőjegy foglaláskor. A foglalási folyamat során, a megfelelő mezőben adja meg és érvényesítse az utalvány egyedi azonosítóját. Ilyenkor a rendszer automatikusan csökkenti a fizetett összeget az utalvány aktuális értékével. Ha a fizetendő összeg kevesebb mint az utalvány értéke, akkor a fennmaradó összeg nem vész el, egy következő foglalásnál továbbra is felhasználható."
+  },
+  {
+    "question": "Több utalványt is beválthatok egy foglalásban?",
+    "answer": "Nem. Egy foglalásban csak egy utalvány kódot lehet érvényesíteni."
+  },
+  {
+    "question": "Bármilyen repülőjegy foglalásakor felhasználhatom az utalványt?",
+    "answer": "Igen. Egyirányú, oda-vissza vagy többszakaszos repülőjegyek foglalásakor egyaránt felhasználható az utalvány. Bármelyik fapados vagy hagyományos légitársaság járatára való foglaláskor érvényesíthető és nincs megkötés úti cél tekintetében sem."
+  },
+  {
+    "question": "Ha kevesebbe kerül a repülőjegyem mint az utalvány, akkor elveszítem a fennmaradó összeget?",
+    "answer": "Nem. A repjegy.hu-s utalványok virtuális egyenlegként működnek, így az értékük teljes mértékben, az utolsó forintig felhasználható. Ha a fizetendő repülőjegy ára kevesebb mint az utalvány értéke, akkor a fennmaradó összeg nem vész el, egy következő foglalásnál továbbra is felhasználható."
+  }
+]

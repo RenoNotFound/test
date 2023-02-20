@@ -1,0 +1,31 @@
+@use "../abstracts" as *;
+
+@each $breakpoint, $breakpoint-value in $heading-sizes {
+    @include media-breakpoint-up($breakpoint) {
+        @each $heading, $size in $breakpoint-value {
+            #{$heading},
+            .#{$heading} {
+                font-size: list-first-item($size);
+                line-height: list-last-item($size);
+            }
+        }
+    }
+}
+
+@each $breakpoint, $breakpoint-value in $font-sizes {
+    @include media-breakpoint-up($breakpoint) {
+        @each $font, $size in $breakpoint-value {
+            @if $font == "font-base" {
+                body {
+                    font-size: list-first-item($size);
+                    line-height: list-last-item($size);
+                }
+            } @else {
+                .#{$font} {
+                    font-size: list-first-item($size);
+                    line-height: list-last-item($size);
+                }
+            }
+        }
+    }
+}

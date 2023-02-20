@@ -1,0 +1,143 @@
+@use "sass:map";
+@use "../abstracts/" as *;
+
+body {
+    font-family: "Montserrat", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial,
+        "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+    @include font(color(grey-dark), 12px, 400, 20px, left);
+    background-color: color(grey-light);
+}
+
+.hidden {
+    display: none;
+
+    &-xs {
+        @include media-breakpoint-up("xs") {
+            display: none;
+        }
+    }
+
+    &-sm {
+        @include media-breakpoint-up("sm") {
+            display: none;
+        }
+    }
+
+    &-md {
+        @include media-breakpoint-up("md") {
+            display: none;
+        }
+    }
+
+    &-lg {
+        @include media-breakpoint-up("lg") {
+            display: none;
+        }
+    }
+
+    &-xl {
+        @include media-breakpoint-up("xl") {
+            display: none;
+        }
+    }
+}
+
+.show {
+    display: block;
+
+    &-xs {
+        @include media-breakpoint-up("xs") {
+            display: inherit;
+        }
+    }
+
+    &-sm {
+        @include media-breakpoint-up("sm") {
+            display: inherit;
+        }
+    }
+
+    &-md {
+        @include media-breakpoint-up("md") {
+            display: inherit;
+        }
+    }
+
+    &-lg {
+        @include media-breakpoint-up("lg") {
+            display: inherit;
+        }
+    }
+
+    &-xl {
+        @include media-breakpoint-up("xl") {
+            display: inherit;
+        }
+    }
+}
+
+.sr-only {
+    position: absolute;
+    left: -10000px;
+    top: auto;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+}
+
+.text--bold {
+    font-weight: bold;
+}
+
+.grow {
+    transition: all 0.2s ease-in-out;
+}
+
+.grow:hover {
+    transform: scale(1.05);
+}
+
+@mixin sticky {
+    position: -webkit-sticky; /* for Safari */
+    position: sticky;
+    top: 30px;
+    margin-bottom: 1.5rem;
+}
+
+%sticky {
+    @include sticky;
+}
+
+.sticky {
+    @extend %sticky;
+
+    &-xs {
+        @include media-breakpoint-up("xs") {
+            @include sticky;
+        }
+    }
+
+    &-sm {
+        @include media-breakpoint-up("sm") {
+            @include sticky;
+        }
+    }
+
+    &-md {
+        @include media-breakpoint-up("md") {
+            @include sticky;
+        }
+    }
+
+    &-lg {
+        @include media-breakpoint-up("lg") {
+            @include sticky;
+        }
+    }
+
+    &-xl {
+        @include media-breakpoint-up("xl") {
+            @include sticky;
+        }
+    }
+}

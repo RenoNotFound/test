@@ -1,0 +1,31 @@
+{
+  "name": "contact_form",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "@vee-validate/rules": "^4.7.3",
+    "@vueuse/components": "^9.10.0",
+    "@vueuse/core": "^9.10.0",
+    "animate.css": "^4.1.1",
+    "axios": "^1.2.1",
+    "dotenv": "^16.0.3",
+    "encrypt-storage": "^2.12.14",
+    "pinia": "^2.0.26",
+    "vee-validate": "^4.7.3",
+    "vue": "^3.2.45",
+    "vue-collapsed": "^1.1.2",
+    "vue-final-modal": "^3.4.11",
+    "vue-router": "^4.1.6",
+    "vue3-autocounter": "^1.0.6"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-vue": "^3.2.0",
+    "sass": "^1.57.1",
+    "vite": "^3.2.4"
+  }
+}

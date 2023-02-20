@@ -1,0 +1,132 @@
+@use "../../abstracts/" as *;
+
+.container {
+    margin-top: 6rem;
+    margin-bottom: 3rem;
+
+    @include media-breakpoint-up(lg) {
+        margin-top: 3rem !important;
+    }
+
+    .blocks__wrapper {
+        @include flex-container($align-items: center, $direction: column);
+
+        @include media-breakpoint-up(xl) {
+            @include flex-container(space-between, start, $direction: row);
+        }
+
+        .block.block--customization {
+            width: 100%;
+            @include media-breakpoint-up(xl) {
+                width: 65%;
+            }
+
+            .card {
+                .card__header {
+                    .card__header__item {
+                        .card__header__icon {
+                        }
+                    }
+                }
+
+                .giftcard__price-tag {
+                    border: 1px solid #a6a6bb;
+                    border-radius: $border-radius;
+                    padding: 12px 0;
+                    font-weight: bold;
+                    font-size: 1.2em;
+                    user-select: none;
+                    text-align: center;
+                    cursor: pointer;
+
+                    &.selected,
+                    &:hover {
+                        background-color: $emerald;
+                        color: white;
+                    }
+                }
+
+                .giftcard__theme-card {
+                    @include flex-container(center, center);
+                    @include font($white, 1.5rem, bold);
+                    border-radius: $border-radius;
+                    height: 120px;
+                    user-select: none;
+
+                    &:hover {
+                        cursor: pointer;
+                    }
+
+                    &.selected {
+                        border: 3px solid #19bc9c;
+                        transform: scale(1.05);
+                        cursor: pointer;
+                    }
+
+                    &.default {
+                        background-position: left 30%;
+                    }
+
+                    &.tengerpart {
+                        background-position: center 45%;
+                    }
+
+                    &.egzotikus {
+                        background-position: center 60%;
+                    }
+
+                    &.romantikus {
+                        background-position: left 40%;
+                    }
+
+                    &.metropolisz {
+                        background-position: center;
+                    }
+
+                    &.karacsony {
+                        background-position: 50% 70%;
+                    }
+
+                    &.gratulacio {
+                        background-position: left 45%;
+                    }
+                }
+
+                .giftcard__title__wrapper,
+                .giftcard__msg__wrapper {
+                    .card__subtitle {
+                        font-size: 1rem;
+                        margin-bottom: 0.7rem;
+                    }
+
+                    .custom-input, .custom-input__wrapper {
+                        margin-bottom: .3rem;
+
+                    }
+
+                    & >small {
+                        color: $gray;
+                        font-size: .75rem;
+                    }
+                }
+            }
+        }
+
+        .block.block--preview {
+            width: 100%;
+            @include media-breakpoint-up(sm) {
+                width: 80%;
+            }
+
+            @include media-breakpoint-up(md) {
+                width: 60%;
+            }
+            @include media-breakpoint-up(lg) {
+                width: 48%;
+            }
+            @include media-breakpoint-up(xl) {
+                width: 33%;
+            }
+        }
+    }
+}

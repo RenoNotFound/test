@@ -1,0 +1,38 @@
+@use "../abstracts/" as *;
+
+.card {
+    padding: px-to-rem(20);
+    box-shadow: 0 10px 20px 0 rgb(50 60 80 / 10%);
+    background-color: #fff;
+    border-radius: $base-border-radius;
+    border: 0;
+    margin-bottom: 1.5rem;
+
+    .card__header {
+        @include flex-container($direction: column, $gap: 1rem);
+        background-color: #fff;
+        border-bottom: 0;
+        padding-left: 0;
+        margin-bottom: 1.5rem;
+
+        .card__header__item {
+            @include flex-container($align-items: center, $gap: 1rem);
+            .card__header__icon {
+                @include flex-container(center, center);
+                @include circle(45px, 45px, 45px, 3px solid color(grey));
+            }
+
+            .card__header__title {
+                font-size: 18px;
+                font-weight: bold;
+                color: color(grey-dark);
+            }
+        }
+
+        .card__header__subtitle {
+            font-size: 14px!important;
+            font-weight: 500;
+            line-height: 18px;
+        }
+    }
+}

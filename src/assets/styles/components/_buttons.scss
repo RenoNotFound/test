@@ -1,0 +1,130 @@
+@use "sass:list";
+@use "../abstracts/" as *;
+
+// --- GENERAL --- //
+
+button:not(:disabled),
+[type="button"]:not(:disabled),
+[type="reset"]:not(:disabled),
+[type="submit"]:not(:disabled) {
+    cursor: pointer;
+}
+
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+
+    border: none;
+    border-radius: $base-border-radius;
+    padding: 14px 20px;
+    font-size: 14px;
+    line-height: 20px;
+    width: 100%;
+
+    &::before {
+        @include transition(0.15s ease-in);
+        background-color: white;
+    }
+
+    &:hover:before {
+        background-color: #fff;
+        opacity: 0.8;
+    }
+
+    &:not(.btn-sm) {
+        text-transform: uppercase;
+    }
+
+    & > span {
+        font-weight: bold;
+    }
+
+    &-sm {
+        padding: 0.625rem 0.875rem;
+        font-size: 0.875rem;
+        line-height: 1.5;
+    }
+
+    &-lg {
+        padding: 1.3125rem 1.25rem;
+        font-size: 1.25rem;
+        line-height: 1.5;
+    }
+
+    &-outline-primary {
+        color: color(smokey-blue, primary);
+        border: 1px solid color(smokey-blue, primary);
+        background-color: color(white);
+
+        &:hover:before {
+            border: 1px solid rgba(25, 39, 67, 0.8);
+        }
+
+        &::after {
+            content: "";
+            @include absolute(-1px, null, null, -1px);
+            @include size(calc(100% + 2px));
+            @include rounded();
+            @include transition(opacity .2s ease-in);
+        }
+
+        &:hover:after {
+            background-color: #fff;
+            opacity: 0.3;
+        }
+
+    }
+
+    &-outline-secondary {
+        color: color(orange-light, secondary);
+        border: 1px solid color(orange-light, secondary);
+        background-color: color(white);
+
+        &:hover:before {
+            border: 1px solid rgba(255, 183, 49, 0.8);
+        }
+
+        &::after {
+            content: "";
+            @include absolute(-1px, null, null, -1px);
+            @include size(calc(100% + 2px));
+            @include rounded();
+            @include transition(.2s ease-in);
+        }
+
+        &:hover:after {
+            background-color: #fff;
+            opacity: 0.3;
+        }
+    }
+}
+
+.btn-primary,
+.btn-secondary {
+    @include relative();
+    color: color(white);
+    @include transition(opacity 0.3);
+}
+
+// --- PRIMARY --- //
+
+.btn-primary::before {
+    @include button-pseudo(blue-dark-gradient);
+}
+
+.btn-outline-primary::before {
+    @include button-outline-pseudo(color(blue-dark, primary));
+}
+
+
+// --- SECONDARY --- //
+
+.btn-secondary::before {
+    @include button-pseudo(orange-gradient);
+}
+
+.btn-outline-secondary::before {
+    @include button-outline-pseudo(color(orange-light, secondary));
+}

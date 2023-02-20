@@ -1,0 +1,75 @@
+@use "sass:math";
+@use "../abstracts" as *;
+
+$grid-columns: 12;
+
+.container {
+    @include media-breakpoint-up("xs") {
+        width: 100%;
+        margin: 0 auto;
+        padding: 0 20px;
+    }
+
+    @include media-breakpoint-up("sm") {
+        max-width: 540px;
+        padding: 0 10px;
+    }
+
+    @include media-breakpoint-up("md") {
+        max-width: 720px;
+    }
+
+    @include media-breakpoint-up("lg") {
+        max-width: 960px;
+    }
+
+    @include media-breakpoint-up("xl") {
+        max-width: 1320px;
+    }
+};
+
+.row {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    grid-gap: 10px;
+}
+
+@include media-breakpoint-up("xs") {
+    @for $i from 1 through $grid-columns {
+        .col-xs-#{$i}{
+            grid-column: span #{$i};
+        }
+    }
+}
+
+@include media-breakpoint-up("sm") {
+    @for $i from 1 through $grid-columns {
+        .col-sm-#{$i}{
+            grid-column: span #{$i};
+        }
+    }
+}
+
+@include media-breakpoint-up("md") {
+    @for $i from 1 through $grid-columns {
+        .col-md-#{$i}{
+            grid-column: span #{$i};
+        }
+    }
+}
+
+@include media-breakpoint-up("lg") {
+    @for $i from 1 through $grid-columns {
+        .col-lg-#{$i}{
+            grid-column: span #{$i};
+        }
+    }
+}
+
+@include media-breakpoint-up("xl") {
+    @for $i from 1 through $grid-columns {
+        .col-xl-#{$i}{
+            grid-column: span #{$i};
+        }
+    }
+}

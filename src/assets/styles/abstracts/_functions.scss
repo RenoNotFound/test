@@ -1,0 +1,66 @@
+@use "sass:list";
+@use "sass:math";
+@use "./variables" as *;
+
+@function convert-to-rem($px-value) {
+    $rem-value: $px-value / $base-font-size;
+    $zero-safe-rem-value: if($px-value == 0, 0, $rem-value);
+
+    @return $zero-safe-rem-value;
+}
+
+@function px-to-rem($pxValue) {
+    @return math.div($pxValue, 16) * 1rem;
+}
+
+// Converts single or multiple px values into rem.
+// Accepts multiple values in the form: `rem(20px 30px 0 40px)`.
+@function rem($px-values) {
+    $rem-values: ();
+
+    @each $px-value in $px-values {
+        $rem-values: list.append($rem-values, convert-to-rem($px-value));
+    }
+
+    @return $rem-values;
+}
+
+/* =============================
+             LIST
+================================ */
+
+@function list-first-item($list) {
+    @return list.nth($list, 1);
+}
+
+@function list-last-item($list) {
+    @return list.nth($list, list.length($list));
+}
+
+@function list-nth-item($list, $nth) {
+    @return list.nth($list, $nth);
+}
+
+@function list-slice($list, $start: 1, $end: list.length($list)) {
+    $result: null;
+
+    @if type-of($start) != number or type-of($end) != number {
+        @warn "Either $start or $end are not a number for `slice`.";
+    } @else if $start > $end {
+        @warn "The start index has to be lesser than or equals to the end index for `slice`.";
+    } @else if $start < 1 or $end < 1 {
+        @warn "List indexes must be non-zero integers for `slice`.";
+    } @else if $start > list.length($list) {
+        @warn "List index is #{$start} but list is only #{list.length($list)} item(s) long for `slice`.";
+    } @else if $end > list.length($list) {
+        @warn "List index is #{$end} but list is only #{list.length($list)} item(s) long for `slice`.";
+    } @else {
+        $result: ();
+
+        @for $i from $start through $end {
+            $result: list.append($result, list.nth($list, $i));
+        }
+    }
+
+    @return $result;
+}

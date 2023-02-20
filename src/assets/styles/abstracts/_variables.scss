@@ -1,0 +1,214 @@
+// @use "./functions" as *;
+
+/* =============================
+            LAYOUT
+================================ */
+$base-border-radius: 4px;
+$border-radius: 4px;
+
+/* =============================
+            FONTS
+================================ */
+// -- body font size --
+$body-font-size: 16px; // base
+$font-size-base: 0.8rem;
+$line-height-base: 1.3rem;
+// -- general --
+$font-sizes: (
+  'xs': (
+    'font-base': (12px, 20px),
+    'font-small': (12px, 20px),
+    'font-large': (14px, 22px)
+  ),
+  'md': (
+    'font-base': (13px, 21px),
+    'font-small': (12px, 20px),
+    'font-large': (15px, 23px)
+  )
+);
+
+$heading-sizes: (
+  'xs': (
+    'h1': (28px, 36px),
+    'h2': (22px, 30px),
+    'h3': (20px, 28px),
+    'h4': (18px, 26px),
+    'h5': (16px, 24px),
+    'h6': (16px, 24px)
+  ),
+  'md': (
+    'h1': (36px, 44px),
+    'h2': (26px, 34px),
+    'h3': (24px, 32px),
+    'h4': (22px, 30px),
+    'h5': (18px, 26px),
+    'h6': (18px, 26px)
+  )
+);
+
+/* =============================
+            COLORS
+================================ */
+// -- colors --
+$black: #000;
+$gray-dark: #333;
+$gray: #a6a6bb;
+$gray-light: #f5f5f5;
+$white: #fff;
+
+$grays: ();
+$grays: map-merge(
+  (
+    'gray-dark': $gray-dark,
+    'gray': $gray,
+    'gray-light': $gray-light
+  ), $grays
+);
+
+$blue-dark: #192743;
+$smokey-blue: #323c50;
+$smokey-blue-dark: #2d3647;
+$orange: #ffa049;
+$orange-light: #ffb731;
+$emerald: #1abc9c;
+$facebook: #3b5998;
+
+$success: #0bbf68;
+$info: #0355d2;
+$warning: #fbd930;
+$danger: #d62f1c;
+
+$blue-dark-gradient: linear-gradient(270deg, $smokey-blue 0%, #223b6f 100%);
+$orange-gradient: linear-gradient(270deg, #f7b731 0%, $orange 100%);
+$emerald-gradient: linear-gradient(270deg, $emerald 0%, #2d3371 100%);
+$flight-gradient: linear-gradient(to right, $gray-light, $gray-dark);
+
+$colors: ();
+$colors: map-merge(
+  (
+    'blue-dark': $blue-dark,
+    'smokey-blue': $smokey-blue,
+    'smokey-blue-dark': $smokey-blue-dark,
+    'orange': $orange,
+    'orange-light': $orange-light,
+    'emerald': $emerald,
+    'black': $black,
+    'white': $white,
+    'gray-dark': $gray-dark,
+    'gray': $gray,
+    'gray-light': $gray-light,
+    'blue-dark-gradient': $blue-dark-gradient,
+    'orange-gradient': $orange-gradient,
+    'emerald-gradient': $emerald-gradient,
+    'success': $success,
+    'info': $info,
+    'warning': $warning,
+    'danger': $danger,
+  ), $colors
+);
+
+$primary: $blue-dark;
+$primary-smokey: $smokey-blue;
+$primary-smokey-dark: $smokey-blue-dark;
+$secondary: $orange;
+$secondary-light: $orange-light;
+$tertiary: $emerald;
+
+$theme-colors: ();
+$theme-colors: map-merge(
+  (
+    'primary': $primary,
+    'primary-smokey': $primary-smokey,
+    'primary-smokey-dark': $primary-smokey-dark,
+    'secondary': $secondary,
+    'secondary-light': $secondary-light,
+    'tertiary': $tertiary,
+    'success': $success,
+    'info': $info,
+    'warning': $warning,
+    'danger': $danger
+  ), $theme-colors
+);
+
+$body-color: $gray-dark;
+
+
+
+
+
+
+
+
+
+
+
+// Buttons + Forms
+$custom-input-padding-y: .875rem;
+$custom-input-padding-x: 1.25rem;
+
+$input-btn-focus-width: 0;
+$input-btn-focus-color: transparent;
+
+$custom-input-padding-y-sm: .625rem;
+$custom-input-padding-x-sm: 1.25rem;
+
+$custom-input-padding-y-lg: 1.3125rem;
+$custom-input-padding-x-lg: 1.25rem;
+
+// Buttons
+$button-colors: (
+  'primary': ($smokey-blue, #223b6f, $blue-dark, $smokey-blue),
+  'secondary': (#f7b731, $orange, $orange, $orange-light),
+  'gray': ($gray, $gray, $gray, $gray),
+  'facebook': ($facebook, $facebook, $facebook, $facebook),
+);
+
+$btn-font-weight: 700;
+$btn-disabled-opacity: .5;
+
+$btn-padding-x-sm: .875rem;
+$btn-padding-x: .875rem;
+$btn-padding-x-lg: .875rem;
+
+// Forms
+$label-margin-bottom: .9375rem;
+
+$form-group-margin-bottom: .625rem;
+
+$input-color: $gray-dark;
+$input-border-color: $gray;
+$input-focus-border-color: $gray-dark;
+$input-font-weight: 500;
+
+$input-disabled-bg: $white;
+$input-placeholder-color: $gray;
+$form-feedback-invalid-color: $danger;
+
+$form-feedback-valid-color: $success;
+$form-feedback-invalid-color: $danger;
+
+$input-group-addon-bg: transparent;
+
+// Alerts
+$alert-padding-y: .625rem;
+$alert-padding-x: 1rem;
+$alert-margin-bottom: 1rem;
+$alert-border-radius: 0;
+$alert-border-width: 0;
+
+$alert-bg-level: -5;
+$alert-border-level: 0;
+$alert-color-level: 0;
+
+// Transitions
+$transition-time: .5s;
+$transition-collapse-duration: .3s;
+$transition-collapse: height $transition-collapse-duration ease;
+
+// Modals
+$modal-header-border-width: 0;
+
+$modal-header-padding-y: 1rem;
+$modal-header-padding-x: 1rem;
+$modal-header-padding: $modal-header-padding-y $modal-header-padding-x;
+$modal-title-line-height: 27px;

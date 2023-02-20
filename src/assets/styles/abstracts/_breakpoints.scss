@@ -1,0 +1,79 @@
+$breakpoints: (
+    "xs": 0,
+    "sm": 576px,
+    "md": 768px,
+    "lg": 992px,
+    "xl": 1400px,
+);
+
+@mixin media-breakpoint-up($bp) {
+    @if $bp == "xs" {
+        @media (min-width: map-get($breakpoints, $bp)) {
+            @content;
+        }
+    } @else if $bp == "sm" {
+        @media (min-width: map-get($breakpoints, $bp)) {
+            @content;
+        }
+    } @else if $bp == "md" {
+        @media (min-width: map-get($breakpoints, $bp)) {
+            @content;
+        }
+    } @else if $bp == "lg" {
+        @media (min-width: map-get($breakpoints, $bp)) {
+            @content;
+        }
+    } @else if $bp == "xl" {
+        @media (min-width: map-get($breakpoints, $bp)) {
+            @content;
+        }
+    } @else {
+        @error "Invalid breakpoint! Choose from: [xs, sm, md, lg, xl]";
+    }
+}
+
+@mixin media-breakpoint-down($bp) {
+    @if $bp == "xs" {
+        @media (max-width: map-get($breakpoints, $bp)) {
+            @content;
+        }
+    } @else if $bp == "sm" {
+        @media (max-width: map-get($breakpoints, $bp)) {
+            @content;
+        }
+    } @else if $bp == "md" {
+        @media (max-width: map-get($breakpoints, $bp)) {
+            @content;
+        }
+    } @else if $bp == "lg" {
+        @media (max-width: map-get($breakpoints, $bp)) {
+            @content;
+        }
+    } @else if $bp == "xl" {
+        @media (max-width: map-get($breakpoints, $bp)) {
+            @content;
+        }
+    } @else {
+        @error "Invalid breakpoint! Choose from: [xs, sm, md, lg, xl]";
+    }
+}
+
+@mixin meadia-breakpoint-custom($value, $bp) {
+    @if ($value != "min") or ($value != "max") {
+        @error "Value #{$value} must be either min or max.";
+    } @else if type-of($bp) != number {
+        @error "Breakpoint must be a valid number!";
+    } @else if type-of($value) != string {
+        @error "Value must be a valid string!";
+    } @else if $value == "min" {
+        @media (min-width: $bp) {
+            @content;
+        }
+    } @else if $value == "max" {
+        @media (max-width: $bp) {
+            @content;
+        }
+    }
+}
+
+
